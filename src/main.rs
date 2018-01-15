@@ -1,5 +1,5 @@
-mod euler3;
+mod euler4;
 
 fn main() {
-   euler3::execute();
+   euler4::execute();
 }
