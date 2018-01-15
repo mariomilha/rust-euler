@@ -1,0 +1,6 @@
+[package]
+name = "first_test"
+version = "0.1.0"
+authors = ["mlourenc <mario.lourenco.ext@coriant.com>"]
+
+[dependencies]
