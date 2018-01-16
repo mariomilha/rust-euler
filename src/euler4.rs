@@ -20,11 +20,11 @@ impl Iterator for Pair{
     fn next(&mut self) -> Option<Self::Item>{
         let to_return = self.x * self.y;
         self.y = self.y -1;
-        if self.y == 0 {
+        if self.y < self.x {
+            self.x = self.x - 1;
             if self.x == 0{
                 return None;
             }else{
-                self.x = self.x-1;
                 self.y = 999;
             }
         }
