@@ -29,9 +29,11 @@ impl Iterator for Pair{
 }
 
 pub fn execute() {
-    let mut value_iterator = Pair::new();
+    let value_iterator = Pair::new();
     let mut result:Option<u32> = value_iterator
-        .find(|v| is_palindrome(v));
+        .filter(|v| *v != 0)
+        .filter(|v| is_palindrome(v))
+        .max();
     let palindrome= result.get_or_insert(1);
 
 
@@ -39,6 +41,26 @@ pub fn execute() {
 }
 
 fn is_palindrome(value:&u32) -> bool{
-    //TODO: add logic to discover if the value is a palindrome
-    false
+    let mut counter : u32 = *value;
+    let mut number_of_digits : usize = 0;
+    let mut vector:Vec<u32> = vec![0; 7];
+    while counter/10 > 0 || counter % 10 != 0 {
+        vector[number_of_digits] = counter%10;
+        counter = counter /10;
+        number_of_digits = number_of_digits +1;
+    }
+    let mut begin : usize = 0;
+    let mut end : usize = number_of_digits -1;
+    loop{
+        if begin == end || end < begin{
+            return true
+        }
+        if vector[begin] == vector[end]{
+            begin = begin + 1;
+            end = end -1;
+            continue
+        }else{
+            return false;
+        }
+    }
 }
