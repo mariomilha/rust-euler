@@ -30,10 +30,11 @@ const SEQUENCE:&str = "731671765313306249192251196744265747423553491949349698352
 
 pub fn execute() {
     let mut begin_idx = 0;
-    let mut end_idx = 12;
+    let mut end_idx = 13;
     let mut max_result : u64 = 0;
     while end_idx< SEQUENCE.len(){
         let slice_value = calculate_multiplication(&SEQUENCE[begin_idx..end_idx]);
+        
         if slice_value > max_result {
             max_result = slice_value;
         }
